@@ -1,26 +1,14 @@
-# -------------------------------------------------
-# MODULE 2 - CODE EXPLANATION MODULE
-# -------------------------------------------------
 
 import google.generativeai as genai
 
-# -------------------------------------------------
-# CONFIGURE GEMINI API
-# -------------------------------------------------
 genai.configure(
     api_key="AIzaSyDHVQZNo9N2O1tjOjYfj1QIoneTF2X5Jfw"
 )
 
-# -------------------------------------------------
-# LOAD GEMINI MODEL
-# -------------------------------------------------
 model = genai.GenerativeModel(
     "models/gemini-1.5-flash"
 )
 
-# -------------------------------------------------
-# FUNCTION : GENERATE CODE EXPLANATION
-# -------------------------------------------------
 def explain_code(code, language):
 
     prompt = f"""
