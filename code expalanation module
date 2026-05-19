@@ -1,0 +1,50 @@
+# -------------------------------------------------
+# MODULE 2 - CODE EXPLANATION MODULE
+# -------------------------------------------------
+
+import google.generativeai as genai
+
+# -------------------------------------------------
+# CONFIGURE GEMINI API
+# -------------------------------------------------
+genai.configure(
+    api_key="AIzaSyDHVQZNo9N2O1tjOjYfj1QIoneTF2X5Jfw"
+)
+
+# -------------------------------------------------
+# LOAD GEMINI MODEL
+# -------------------------------------------------
+model = genai.GenerativeModel(
+    "models/gemini-1.5-flash"
+)
+
+# -------------------------------------------------
+# FUNCTION : GENERATE CODE EXPLANATION
+# -------------------------------------------------
+def explain_code(code, language):
+
+    prompt = f"""
+    You are an expert programming tutor.
+
+    Analyze the following {language} code and explain it clearly.
+
+    Give:
+    1. Overall purpose of the program
+    2. Line-by-line explanation
+    3. Output explanation
+    4. Important concepts used
+    5. Beginner-friendly explanation
+
+    Code:
+    {code}
+    """
+
+    try:
+
+        response = model.generate_content(prompt)
+
+        return response.text
+
+    except Exception as e:
+
+        return f"Error: {str(e)}"
