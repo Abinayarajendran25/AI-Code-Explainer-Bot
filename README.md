@@ -5,7 +5,7 @@ The application accepts source code from the user and provides AI-generated expl
 # Module 1 – User Interface
 - The screen where the user interacts
 - Input box, buttons, and output display
-#Module 2 – Code Explanation
+# Module 2 – Code Explanation
 - Explains what the code does in simple words
 -  Acts like a teacher explaining step by step
 # Module 3 – Debugging
