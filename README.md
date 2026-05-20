@@ -11,3 +11,21 @@ The application accepts source code from the user and provides AI-generated expl
 # Module 3 – Debugging
 -  Finds errors in the code
 -  Suggests fixes and explains the mistakes**
+# Module 4 – Complexity Analysis Module
+- Analyzes Time Complexity and Space Complexity.
+- Estimates efficiency of loops, recursion, and algorithms.
+- Displays Big-O notation like O(n), O(log n), O(n²).
+- Suggests optimization improvements.
+# Module 5 – Multi-Language Support Module
+- Supports multiple programming languages.
+- Example: Python, Java, C, C++, JavaScript.
+- Detects language automatically or through user selection.
+- Gives explanations according to selected language syntax.
+# Module 6 – Report Generation Module
+- Generates downloadable reports.
+- Creates PDF/DOCX summary of:
+- Code Explanation
+- Errors Found
+Complexity Analysis
+Suggestions
+Useful for project documentation and presentations.
