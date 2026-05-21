@@ -1,0 +1,40 @@
+# Module 3 – Debugging & Error Detection Module
+# Purpose
+- Detects coding errors and suggests fixes.
+# Features
+- Syntax error detection
+- Logical error detection
+- Error correction suggestions
+# Code
+    def debug_code(language, code):
+    prompt = f"""
+    Find errors in the following {language} code.
+    Include:
+    1. Syntax errors
+    2. Logical errors
+    3. Corrected code
+    4. Suggestions
+    Code:
+    {code}
+    """
+    url = "https://api.x.ai/v1/chat/completions"
+    headers = {
+        "Authorization": f"Bearer {API_KEY}",
+        "Content-Type": "application/json"
+    }
+    data = {
+        "model": "grok-beta",
+        "messages": [
+            {
+                "role": "user",
+                "content": prompt
+            }
+        ]
+    }
+    response = requests.post(
+        url,
+        headers=headers,
+        json=data
+    )
+    result = response.json()
+    return result['choices'][0]['message']['content']
