@@ -1,0 +1,39 @@
+# Module 4 – Complexity Analysis Module
+# Purpose
+- Analyzes performance of program.
+# Features
+- Time complexity
+- Space complexity
+- Optimization suggestions
+# Code
+def analyze_complexity(language, code):
+    prompt = f"""
+    Analyze the following {language} code.
+    Include:
+    1. Time complexity
+    2. Space complexity
+    3. Performance optimization suggestions
+    Code:
+    {code}
+    """
+    url = "https://api.x.ai/v1/chat/completions"
+    headers = {
+        "Authorization": f"Bearer {API_KEY}",
+        "Content-Type": "application/json"
+    }
+    data = {
+        "model": "grok-beta",
+        "messages": [
+            {
+                "role": "user",
+                "content": prompt
+            }
+        ]
+    }
+    response = requests.post(
+        url,
+        headers=headers,
+        json=data
+    )
+    result = response.json()
+    return result['choices'][0]['message']['content']
