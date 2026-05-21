@@ -1,0 +1,24 @@
+# Module 1 – User Interface Module
+# Purpose
+- Creates frontend interface for user interaction.
+- Features
+- Code input area
+- Language selection
+- Buttons
+- Display results
+# CODE
+import streamlit as st
+st.set_page_config(
+    page_title="AI Code Explainer Bot",
+    page_icon="💻",
+    layout="centered"
+)
+st.title("💻 AI Code Explainer Bot")
+language = st.selectbox(
+    "Select Programming Language",
+    ["Python", "Java", "C", "C++", "JavaScript"]
+)
+code = st.text_area(
+    "Paste Your Code Here",
+    height=300
+)
