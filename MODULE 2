@@ -1,0 +1,43 @@
+# Module 2 – Code Explanation Module
+# Purpose
+- Explains source code using Grok AI.
+- Features
+- Program explanation
+- Line-by-line explanation
+- Output prediction
+# Code
+import requests
+API_KEY = ""
+def explain_code(language, code):
+    prompt = f"""
+    Explain the following {language} code.
+    Include:
+    1. Purpose of code
+    2. Line-by-line explanation
+    3. Expected output
+    Code:
+    {code}
+  """
+    url = "https://api.x.ai/v1/chat/completions"
+    headers = {
+        "Authorization": f"Bearer {API_KEY}",
+        "Content-Type": "application/json"
+    }
+    data = {
+        "model": "grok-beta",
+        "messages": [
+            {
+                "role": "user",
+                "content": prompt
+            }
+        ]
+    }
+    response = requests.post(
+        url,
+        headers=headers,
+        json=data
+    )
+
+    result = response.json()
+
+    return result['choices'][0]['message']['content']
