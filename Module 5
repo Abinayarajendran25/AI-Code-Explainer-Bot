@@ -1,0 +1,20 @@
+# Module 5 – Multi-Language Support Module
+# Purpose
+- Allows users to analyze different programming languages.
+# Supported Languages
+- Python
+- Java
+- C
+- C++
+- JavaScript
+# Code
+language = st.selectbox(
+    "Select Programming Language",
+    [
+        "Python",
+        "Java",
+        "C",
+        "C++",
+        "JavaScript"
+    ]
+)
