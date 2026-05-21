@@ -1,0 +1,38 @@
+# Module 6 – Report Generation Module
+# Purpose
+- Generates downloadable report.
+# Features
+- Save explanation
+- Save debugging results
+- Export PDF
+# Code
+from fpdf import FPDF
+def generate_pdf(content):
+    pdf = FPDF()
+    pdf.add_page()
+    pdf.set_font("Arial", size=12)
+    pdf.multi_cell(0, 10, content)
+    pdf.output("report.pdf")
+# Final Integration Code
+import streamlit as st
+st.title("AI Code Explainer Bot")
+language = st.selectbox(
+    "Select Language",
+    ["Python", "Java", "C", "C++", "JavaScript"]
+)
+code = st.text_area(
+    "Paste Your Code",
+    height=300
+)
+if st.button("Explain Code"):
+    explanation = explain_code(language, code)
+    st.subheader("Code Explanation")
+    st.write(explanation)
+if st.button("Debug Code"):
+    debug = debug_code(language, code)
+    st.subheader("Debugging Results")
+    st.write(debug)
+if st.button("Analyze Complexity"):
+    complexity = analyze_complexity(language, code)
+    st.subheader("Complexity Analysis")
+    st.write(complexity)
